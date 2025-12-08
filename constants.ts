@@ -10,7 +10,8 @@ import {
   AlertTriangle, 
   Search, 
   Phone,
-  MapPin
+  MapPin,
+  HandHeart
 } from 'lucide-react';
 import { InfoSection, ContactInfo } from './types';
 
@@ -32,6 +33,14 @@ export const SECTIONS: InfoSection[] = [
     title: 'Política de Estorno',
     icon: CreditCard,
     content: "Em caso de não comparecimento sem aviso, será cobrado o valor total. Cancelamentos dentro do prazo recebem estorno em até 7 dias. Reembolso total ao cancelar em até 7 dias após a confirmação da reserva (ART.49 CDC). Após esse período, não há reembolso."
+  },
+  {
+    id: 'massagem',
+    title: 'Massagem',
+    icon: HandHeart,
+    content: "Reserve uma sessão relaxante de massagem durante sua estadia.",
+    externalLink: "https://massagem-vb.vercel.app/",
+    buttonText: "Ver Opções de Massagem"
   },
   {
     id: 'checkin',

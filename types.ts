@@ -6,6 +6,8 @@ export interface InfoSection {
   content: string;
   icon: LucideIcon;
   highlight?: boolean; // For critical alerts like fines
+  externalLink?: string; // External URL for actions
+  buttonText?: string; // Text for external link button
 }
 
 export interface ContactInfo {

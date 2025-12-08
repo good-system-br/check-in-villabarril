@@ -69,6 +69,17 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
           <p className="text-stone-600 dark:text-stone-300 whitespace-pre-line leading-relaxed text-sm md:text-base font-medium">
             {section.content}
           </p>
+          {section.externalLink && (
+            <a
+              href={section.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm"
+            >
+              <section.icon size={18} />
+              {section.buttonText || 'Acessar'}
+            </a>
+          )}
         </div>
       </div>
     </div>
