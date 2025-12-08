@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InfoSection } from '../types';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Copy, Check } from 'lucide-react';
 
 interface InfoCardProps {
   section: InfoSection;
@@ -9,6 +9,7 @@ interface InfoCardProps {
 
 const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   // Staggered animation delay based on index

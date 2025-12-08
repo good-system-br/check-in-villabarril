@@ -64,7 +64,9 @@ export const SECTIONS: InfoSection[] = [
     id: 'wifi',
     title: 'Wi-Fi',
     icon: Wifi,
-    content: "Senha: cadubela"
+    content: "Rede: Villa Barril\nSenha: cadubela",
+    copyableText: "cadubela",
+    copyLabel: "Copiar Senha"
   },
   {
     id: 'regras',

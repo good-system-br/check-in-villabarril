@@ -8,6 +8,8 @@ export interface InfoSection {
   highlight?: boolean; // For critical alerts like fines
   externalLink?: string; // External URL for actions
   buttonText?: string; // Text for external link button
+  copyableText?: string; // Text that can be copied (e.g., WiFi password)
+  copyLabel?: string; // Label for the copyable text
 }
 
 export interface ContactInfo {
