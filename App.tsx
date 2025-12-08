@@ -135,7 +135,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-xs text-stone-400 dark:text-stone-500 font-mono">
-                    MG | 37650-000
+                    MG | 37653-000
                   </div>
                </div>
             </div>
@@ -146,7 +146,6 @@ const App: React.FC = () => {
              <BedDouble className="mx-auto text-stone-400 mb-2" size={32} strokeWidth={1} />
              <p className="text-xs tracking-[0.3em] text-stone-500 font-serif">VILLA BARRIL</p>
           </div>
-
         </div>
       </main>
 

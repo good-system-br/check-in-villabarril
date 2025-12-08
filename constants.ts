@@ -23,7 +23,7 @@ export const APP_INFO = {
 export const CONTACT_INFO: ContactInfo = {
   phone: "35 91017-2566",
   whatsappRaw: "5535910172566",
-  address: "Villas de Monte Verde III - Rua Três, Monte Verde, Camanducaia - MG, 37650-000, Brasil",
+  address: "Villas de Monte Verde III - Rua Três, Monte Verde, Camanducaia - MG, 37653-000, Brasil",
   mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3674.488794!2d-46.080791!3d-22.854601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDUxJzE2LjYiUyA0NsKwMDQnNDMuMCJX!5e0!3m2!1spt-BR!2sbr!4v1698765432100!5m2!1spt-BR!2sbr"
 };
 
