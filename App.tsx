@@ -111,6 +111,16 @@ const App: React.FC = () => {
                    className="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
                  ></iframe>
               </div>
+              
+              <a 
+                href="https://maps.google.com/?q=-22.854601,-46.078602"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 w-full flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+              >
+                <MapPin size={20} />
+                Abrir no Google Maps
+              </a>
             </div>
             
             <div className="bg-olive-50 dark:bg-stone-900/50 p-6 border-t border-olive-100 dark:border-stone-700">

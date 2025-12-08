@@ -60,13 +60,15 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="relative w-full h-full">
           {HERO_IMAGES.map((src, index) => (
-            <div
+            <img
               key={index}
+              src={src}
+              alt={`Imagem ${index + 1}`}
+              loading={index === 0 ? 'eager' : 'lazy'}
               className={`
-                absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out
+                absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out
                 ${imagesLoaded && index === currentImageIndex ? 'opacity-100' : 'opacity-0'}
               `}
-              style={{ backgroundImage: `url(${src})` }}
             />
           ))}
           {/* Overlay Escuro para leitura do texto */}
