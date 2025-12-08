@@ -48,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000); // Troca a cada 5 segundos
+    }, 3000); // Troca a cada 5 segundos
 
     return () => clearInterval(interval);
   }, []);
