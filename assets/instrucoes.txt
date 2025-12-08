@@ -1,0 +1,9 @@
+PASTA DE IMAGENS DO PROJETO (ASSETS)
+
+1. Coloque suas fotos originais nesta pasta.
+2. Formatos recomendados: .jpg, .png ou .webp.
+3. Para usar as fotos no site, edite o arquivo 'components/Hero.tsx' e adicione os nomes dos arquivos.
+
+Exemplo:
+Se você colocar uma foto chamada "pousada-frente.jpg" aqui, 
+lá no arquivo Hero.tsx você deve colocar: "/assets/pousada-frente.jpg".
