@@ -48,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 3000); // Troca a cada 5 segundos
+    }, 3000); // Troca a cada 3 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
             />
           ))}
           {/* Overlay Escuro para leitura do texto */}
-          <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/60 via-black/20 to-black/70 backdrop-blur-[2px]"></div>
+          <div></div>
         </div>
       </div>
 
