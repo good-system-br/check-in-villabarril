@@ -17,6 +17,14 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleCopy = async () => {
+    if (section.copyableText) {
+      await navigator.clipboard.writeText(section.copyableText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <div 
       className={`
@@ -80,6 +88,24 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
               <section.icon size={18} />
               {section.buttonText || 'Acessar'}
             </a>
+          )}
+          {section.copyableText && (
+            <button
+              onClick={handleCopy}
+              className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm disabled:opacity-50"
+            >
+              {copied ? (
+                <>
+                  <Check size={18} />
+                  Copiado!
+                </>
+              ) : (
+                <>
+                  <Copy size={18} />
+                  {section.copyLabel || 'Copiar'}
+                </>
+              )}
+            </button>
           )}
         </div>
       </div>
