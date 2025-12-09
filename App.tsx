@@ -8,12 +8,40 @@ import { BedDouble, Moon, Sun, MapPin, Phone, ArrowLeft } from 'lucide-react';
 const App: React.FC = () => {
   const [showContent, setShowContent] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [temperature, setTemperature] = useState<string | null>(null);
 
   // Initialize dark mode based on system preference
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setDarkMode(true);
     }
+  }, []);
+
+  // Buscar temperatura em tempo real
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(
+          'https://api.open-meteo.com/v1/forecast?latitude=-22.854601&longitude=-46.078602&current=temperature_2m&temperature_unit=celsius&timezone=America/Sao_Paulo'
+        );
+        const data = await response.json();
+        
+        if (data.current) {
+          const temp = Math.round(data.current.temperature_2m);
+          setTemperature(`${temp}°C`);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar clima:', error);
+        setTemperature(null);
+      }
+    };
+
+    fetchWeather();
+    
+    // Atualizar a cada 30 minutos
+    const interval = setInterval(fetchWeather, 30 * 60 * 1000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   // Apply dark mode class to html element
@@ -69,7 +97,7 @@ const App: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           
           {/* Left Side: Back Button + Logo */}
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button 
               onClick={() => setShowContent(false)}
               className="p-2 rounded-full hover:bg-olive-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gold-400/50"
@@ -80,12 +108,13 @@ const App: React.FC = () => {
             
             <button 
               onClick={() => setShowContent(false)}
-              className="flex items-center gap-2 group focus:outline-none ml-1"
+              className="flex items-center gap-2 group focus:outline-none"
             >
-              <BedDouble className="text-gold-600 dark:text-gold-500 group-hover:scale-110 transition-transform duration-300" size={24} />
-              <span className="font-serif font-bold text-stone-800 dark:text-stone-100 text-lg sm:text-xl tracking-wide group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors">
-                VILLA BARRIL
-              </span>
+              <img 
+                src="/logo.png" 
+                alt="Villa Barril" 
+                className="h-10 sm:h-12 object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </button>
           </div>
 
@@ -189,10 +218,13 @@ const App: React.FC = () => {
             </div>
           </div>
           
-          {/* Footer Logo */}
-          <div className="text-center pt-12 pb-6 opacity-50">
-             <BedDouble className="mx-auto text-stone-400 mb-2" size={32} strokeWidth={1} />
-             <p className="text-xs tracking-[0.3em] text-stone-500 font-serif">VILLA BARRIL</p>
+          {/* Footer Logo e Informações */}
+          <div className="text-center pt-12 pb-6">
+             <p className="text-xs tracking-[0.3em] text-stone-500 dark:text-stone-400 font-serif mb-4">VILLA BARRIL</p>
+             <div className="text-xs text-stone-400 dark:text-stone-500 space-y-1">
+               <p>📍 Monte Verde, Camanducaia - MG</p>
+               <p>Altitude: 1.500m | Temperatura: {temperature || 'Carregando...'}</p>
+             </div>
           </div>
         </div>
       </main>
