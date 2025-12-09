@@ -27,6 +27,37 @@ const App: React.FC = () => {
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
+  const handleOpenNavigation = () => {
+    const latitude = -22.854601;
+    const longitude = -46.078602;
+    const label = "Villa Barril";
+    
+    // Detecta se está em dispositivo móvel
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Tenta abrir Waze primeiro
+      const wazeUrl = `waze://?ll=${latitude},${longitude}&navigate=yes`;
+      const mapsUrl = `https://maps.apple.com/?ll=${latitude},${longitude}&q=${encodeURIComponent(label)}`;
+      const googleMapsUrl = `https://maps.google.com/?q=${latitude},${longitude}`;
+      
+      // Tenta abrir Waze
+      const wazeLink = document.createElement('a');
+      wazeLink.href = wazeUrl;
+      wazeLink.style.display = 'none';
+      document.body.appendChild(wazeLink);
+      wazeLink.click();
+      
+      // Se Waze não abrir em 2 segundos, tenta Google Maps
+      setTimeout(() => {
+        window.location.href = googleMapsUrl;
+      }, 2000);
+    } else {
+      // Em desktop, abre Google Maps
+      window.open(`https://maps.google.com/?q=${latitude},${longitude}`, '_blank');
+    }
+  };
+
   if (!showContent) {
     return <Hero onStart={() => setShowContent(true)} />;
   }
@@ -130,6 +161,14 @@ const App: React.FC = () => {
                 <MapPin size={20} />
                 Abrir no Google Maps
               </a>
+              
+              <button 
+                onClick={handleOpenNavigation}
+                className="mt-3 w-full flex items-center justify-center gap-2 px-6 py-3 bg-stone-700 hover:bg-stone-800 dark:bg-stone-700 dark:hover:bg-stone-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+              >
+                <MapPin size={20} />
+                Ir para Villa Barril (Navegação)
+              </button>
             </div>
             
             <div className="bg-olive-50 dark:bg-stone-900/50 p-6 border-t border-olive-100 dark:border-stone-700">
