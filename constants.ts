@@ -52,7 +52,9 @@ export const SECTIONS: InfoSection[] = [
     id: 'cafe',
     title: 'Café da Manhã',
     icon: Coffee,
-    content: "Servido no quarto com hora marcada. Solicitar via recepção ou mensagem. Cardápio será enviado."
+    content: "Horário: 8:00 às 10:30\n\nServido no quarto com hora marcada. O pedido pode ser feito assim que receber a chave do quarto. Solicitar via recepção ou mensagem.",
+    externalLink: "https://cafevillabarril.vercel.app/",
+    buttonText: "Solicitar Café da Manhã"
   },
   {
     id: 'arrumacao',

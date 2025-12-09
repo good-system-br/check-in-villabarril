@@ -72,6 +72,15 @@ const App: React.FC = () => {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         <div className="space-y-6 sm:space-y-8">
           
+          {/* Logo */}
+          <div className="flex justify-center mb-8 animate-fade-in">
+            <img 
+              src="/logo.png" 
+              alt="Villa Barril Logo" 
+              className="h-24 object-contain drop-shadow-lg"
+            />
+          </div>
+          
           {/* Intro Text */}
           <div className="text-center py-6 animate-fade-in">
             <h2 className="font-serif text-3xl text-stone-800 dark:text-stone-100 mb-2">Bem-vindo</h2>
