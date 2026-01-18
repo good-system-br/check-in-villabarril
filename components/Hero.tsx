@@ -140,19 +140,20 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
 
       {/* CONTEÚDO */}
       <div className="z-10 flex flex-col items-center max-w-lg w-full">
-        <div className="mb-8 animate-fade-in">
+        <div className="mb-16 animate-fade-in flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 -mt-20">
            <img 
              src="/logo.png" 
              alt="Villa Barril Logo" 
-             className="h-32 object-contain drop-shadow-lg"
+             className="h-24 md:h-32 object-contain drop-shadow-lg flex-shrink-0"
            />
         </div>
         
-        <h1 className="font-serif text-4xl md:text-6xl text-white font-bold tracking-wider mb-4 animate-slide-up drop-shadow-lg" style={{ animationDelay: '200ms' }}>
+        <h1 className="font-serif text-4xl md:text-6xl text-white font-bold tracking-wider mb-6 animate-slide-up drop-shadow-lg text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4" style={{ animationDelay: '200ms' }}>
           {APP_INFO.name}
+          <span className="text-white/90 text-base md:text-lg font-light tracking-[0.2em]">{APP_INFO.subtitle}</span>
         </h1>
         
-        <p className="text-white/90 text-lg md:text-xl font-light tracking-[0.2em] mb-12 animate-slide-up drop-shadow-md" style={{ animationDelay: '400ms' }}>
+        <p className="text-white/90 text-lg md:text-xl font-light tracking-[0.2em] mb-16 animate-slide-up drop-shadow-md text-center hidden" style={{ animationDelay: '400ms' }}>
           {APP_INFO.subtitle}
         </p>
 
@@ -163,7 +164,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
             bg-gold-500/90 hover:bg-gold-500 text-white rounded-full 
             transition-all duration-300 shadow-lg shadow-black/30
             backdrop-blur-sm border border-white/20
-            animate-slide-up hover:scale-105
+            animate-slide-up hover:scale-105 mt-40
           "
           style={{ animationDelay: '600ms' }}
         >
