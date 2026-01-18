@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InfoSection } from '../types';
-import { ChevronDown, Copy, Check } from 'lucide-react';
+import { ChevronDown, Copy, Check, Clock } from 'lucide-react';
 
 interface InfoCardProps {
   section: InfoSection;
@@ -32,6 +32,8 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
         animate-slide-up opacity-0 fill-mode-forwards
         ${section.highlight 
           ? 'border-red-400 bg-red-50/50 dark:bg-red-900/10 dark:border-red-800' 
+          : section.isUrgent
+          ? 'border-orange-400 bg-orange-50/50 dark:bg-orange-900/10 dark:border-orange-800'
           : 'border-olive-200 bg-white dark:bg-stone-800 dark:border-stone-700 hover:border-gold-400 dark:hover:border-gold-600'}
         shadow-sm hover:shadow-md
       `}
@@ -47,13 +49,25 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
             p-2.5 rounded-full 
             ${section.highlight 
               ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400' 
+              : section.isUrgent
+              ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400'
               : 'bg-olive-50 text-olive-700 dark:bg-stone-700 dark:text-gold-400'}
           `}>
             <section.icon size={22} strokeWidth={1.5} />
           </div>
-          <h3 className={`font-serif text-lg font-semibold ${section.highlight ? 'text-red-700 dark:text-red-400' : 'text-stone-800 dark:text-stone-100'}`}>
-            {section.title}
-          </h3>
+          <div className="flex flex-col gap-1">
+            <h3 className={`font-serif text-lg font-semibold ${section.highlight ? 'text-red-700 dark:text-red-400' : section.isUrgent ? 'text-orange-700 dark:text-orange-400' : 'text-stone-800 dark:text-stone-100'}`}>
+              {section.title}
+            </h3>
+            {section.isUrgent && section.deadline && (
+              <div className="flex items-center gap-1.5">
+                <Clock size={14} className="text-orange-500 dark:text-orange-400" />
+                <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wide">
+                  {section.deadline}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
         
         <ChevronDown 

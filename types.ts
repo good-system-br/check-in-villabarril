@@ -6,6 +6,8 @@ export interface InfoSection {
   content: string;
   icon: LucideIcon;
   highlight?: boolean; // For critical alerts like fines
+  isUrgent?: boolean; // For time-sensitive services
+  deadline?: string; // Deadline text (e.g., "Até 10:00")
   externalLink?: string; // External URL for actions
   buttonText?: string; // Text for external link button
   copyableText?: string; // Text that can be copied (e.g., WiFi password)
