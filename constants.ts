@@ -106,5 +106,11 @@ export const SECTIONS: InfoSection[] = [
     icon: AlertTriangle,
     highlight: true,
     content: "Ultrapassando 12h, o sistema cobra automaticamente taxa de R$390,00."
+  },
+  {
+    id: 'seguranca',
+    title: 'Aviso de Segurança',
+    icon: ShieldAlert,
+    content: "Para sua segurança e conservação de nossas acomodações, é estritamente proibido o uso de:\n\n• Ferro de passar roupas\n• Qualquer outro equipamento elétrico gerador de calor\n\nNota: É permitido apenas o uso de aparelhos fornecidos pela própria pousada. Contamos com a sua colaboração!"
   }
 ];
