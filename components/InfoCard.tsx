@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InfoSection } from '../types';
-import { ChevronDown, Copy, Check, Clock } from 'lucide-react';
+import { ChevronDown, Copy, Check, Clock, MessageCircle } from 'lucide-react';
 
 interface InfoCardProps {
   section: InfoSection;
@@ -101,6 +101,17 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
             >
               <section.icon size={18} />
               {section.buttonText || 'Acessar'}
+            </a>
+          )}
+          {section.whatsappPhone && (
+            <a
+              href={`https://wa.me/${section.whatsappPhone}?text=${encodeURIComponent(section.whatsappText || '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm"
+            >
+              <MessageCircle size={18} />
+              {section.whatsappButtonText || 'WhatsApp'}
             </a>
           )}
           {section.copyableText && (

@@ -65,8 +65,9 @@ export const SECTIONS: InfoSection[] = [
     isUrgent: true,
     deadline: "Solicitar até 14:00",
     content: "Solicitar antes das 14:00.",
-    externalLink: "https://cafevillabarril.vercel.app/",
-    buttonText: "Solicitar Arrumação"
+    whatsappPhone: CONTACT_INFO.whatsappRaw,
+    whatsappText: "Olá! Gostaria de solicitar a arrumação do meu quarto.",
+    whatsappButtonText: "Solicitar Arrumação via WhatsApp"
   },
   {
     id: 'wifi',

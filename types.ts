@@ -10,6 +10,9 @@ export interface InfoSection {
   deadline?: string; // Deadline text (e.g., "Até 10:00")
   externalLink?: string; // External URL for actions
   buttonText?: string; // Text for external link button
+  whatsappPhone?: string; // WhatsApp number for contact
+  whatsappText?: string; // Text to send via WhatsApp
+  whatsappButtonText?: string; // Text for WhatsApp button
   copyableText?: string; // Text that can be copied (e.g., WiFi password)
   copyLabel?: string; // Label for the copyable text
 }
