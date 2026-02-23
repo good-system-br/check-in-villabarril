@@ -11,7 +11,8 @@ import {
   Search, 
   Phone,
   MapPin,
-  HandHeart
+  HandHeart,
+  Wine
 } from 'lucide-react';
 import { InfoSection, ContactInfo } from './types';
 
@@ -33,6 +34,12 @@ export const SECTIONS: InfoSection[] = [
     title: 'Política de Estorno',
     icon: CreditCard,
     content: "Em caso de não comparecimento sem aviso, será cobrado o valor total. Cancelamentos dentro do prazo recebem estorno em até 7 dias. Reembolso total ao cancelar em até 7 dias após a confirmação da reserva (ART.49 CDC). Após esse período, não há reembolso."
+  },
+  {
+    id: 'frigobar',
+    title: 'Frigobar',
+    icon: Wine,
+    content: "Refrigerante: R$10,00\nCerveja: R$15,00\nÁgua: R$5,00\nChandon baby: R$85,00\nRed-Bull: R$20,00\nVinho: R$95,00\nSalton: R$130,00\nBatatas: R$20,00",
   },
   {
     id: 'massagem',
