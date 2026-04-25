@@ -79,6 +79,50 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #7d5325;
       }
+
+      @keyframes breakfastGlow {
+        0% {
+          background-position: 0% 50%;
+          opacity: 0.55;
+        }
+        50% {
+          background-position: 100% 50%;
+          opacity: 0.95;
+        }
+        100% {
+          background-position: 0% 50%;
+          opacity: 0.55;
+        }
+      }
+
+      @keyframes breakfastShimmer {
+        0% {
+          transform: translateX(-120%);
+        }
+        100% {
+          transform: translateX(240%);
+        }
+      }
+
+      @keyframes breakfastCtaPulse {
+        0%,
+        100% {
+          transform: translateY(0);
+          box-shadow: 0 8px 16px rgba(184, 140, 50, 0.22);
+        }
+        50% {
+          transform: translateY(-1px);
+          box-shadow: 0 12px 22px rgba(224, 144, 61, 0.32);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        [style*="breakfastGlow"],
+        [style*="breakfastShimmer"],
+        .animate-\[breakfastCtaPulse_2\.8s_ease-in-out_infinite\] {
+          animation: none !important;
+        }
+      }
     </style>
   <script type="importmap">
 {

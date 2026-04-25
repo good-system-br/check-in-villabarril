@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { InfoSection } from '../types';
 import { ChevronDown, Copy, Check, Clock, MessageCircle } from 'lucide-react';
 
@@ -36,19 +36,27 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
           : section.isUrgent
           ? 'border-orange-400 bg-orange-50/50 dark:bg-orange-900/10 dark:border-orange-800'
           : 'border-olive-200 bg-white dark:bg-stone-800 dark:border-stone-700 hover:border-gold-400 dark:hover:border-gold-600'}
-        ${isBreakfastCard ? 'ring-2 ring-gold-300/80 dark:ring-gold-700/60 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/30' : ''}
+        ${isBreakfastCard ? 'border-gold-300/90 dark:border-gold-700/70 ring-1 ring-gold-300/90 dark:ring-gold-700/70 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/35' : ''}
         shadow-sm hover:shadow-md
       `}
       style={{ animationDelay }}
     >
       {isBreakfastCard && (
         <>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gold-100/50 via-orange-100/20 to-gold-100/50 dark:from-gold-900/20 dark:via-orange-900/10 dark:to-gold-900/20" />
-          <div className="pointer-events-none absolute -inset-[2px] rounded-xl border-2 border-gold-300/70 dark:border-gold-600/60 animate-pulse" />
-          <div className="absolute top-3 right-3 z-10">
-            <span className="inline-flex items-center gap-1 rounded-full bg-gold-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md animate-pulse">
-              Nao esquecer
-            </span>
+          <div
+            className="pointer-events-none absolute inset-0 rounded-xl"
+            style={{
+              background:
+                'linear-gradient(120deg, rgba(184,140,50,0.12) 0%, rgba(230,184,73,0.26) 35%, rgba(224,144,61,0.18) 65%, rgba(184,140,50,0.12) 100%)',
+              backgroundSize: '200% 100%',
+              animation: 'breakfastGlow 4s ease-in-out infinite',
+            }}
+          />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 overflow-hidden rounded-t-xl bg-gold-200/70 dark:bg-gold-900/50">
+            <div
+              className="h-full w-1/2 bg-gradient-to-r from-transparent via-white/90 to-transparent dark:via-gold-200/90"
+              style={{ animation: 'breakfastShimmer 2.8s linear infinite' }}
+            />
           </div>
         </>
       )}
@@ -66,6 +74,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
               : section.isUrgent
               ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400'
               : 'bg-olive-50 text-olive-700 dark:bg-stone-700 dark:text-gold-400'}
+            ${isBreakfastCard ? 'ring-2 ring-gold-300/70 dark:ring-gold-700/60 shadow-md shadow-gold-500/20' : ''}
           `}>
             <section.icon size={22} strokeWidth={1.5} />
           </div>
@@ -111,7 +120,11 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
               href={section.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm"
+              className={`mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm ${
+                isBreakfastCard
+                  ? 'bg-gradient-to-r from-gold-500 to-orange-500 hover:from-gold-600 hover:to-orange-600 animate-[breakfastCtaPulse_2.8s_ease-in-out_infinite]'
+                  : 'bg-gold-500 hover:bg-gold-600'
+              }`}
             >
               <section.icon size={18} />
               {section.buttonText || 'Acessar'}
