@@ -11,6 +11,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const isBreakfastCard = section.id === 'cafe';
 
   // Staggered animation delay based on index
   const animationDelay = `${index * 100}ms`;
@@ -35,10 +36,23 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
           : section.isUrgent
           ? 'border-orange-400 bg-orange-50/50 dark:bg-orange-900/10 dark:border-orange-800'
           : 'border-olive-200 bg-white dark:bg-stone-800 dark:border-stone-700 hover:border-gold-400 dark:hover:border-gold-600'}
+        ${isBreakfastCard ? 'ring-2 ring-gold-300/80 dark:ring-gold-700/60 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/30' : ''}
         shadow-sm hover:shadow-md
       `}
       style={{ animationDelay }}
     >
+      {isBreakfastCard && (
+        <>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gold-100/50 via-orange-100/20 to-gold-100/50 dark:from-gold-900/20 dark:via-orange-900/10 dark:to-gold-900/20" />
+          <div className="pointer-events-none absolute -inset-[2px] rounded-xl border-2 border-gold-300/70 dark:border-gold-600/60 animate-pulse" />
+          <div className="absolute top-3 right-3 z-10">
+            <span className="inline-flex items-center gap-1 rounded-full bg-gold-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md animate-pulse">
+              Nao esquecer
+            </span>
+          </div>
+        </>
+      )}
+
       <button
         onClick={toggle}
         className="w-full text-left p-5 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
