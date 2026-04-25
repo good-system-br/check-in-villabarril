@@ -31,9 +31,15 @@ export const CONTACT_INFO: ContactInfo = {
 export const SECTIONS: InfoSection[] = [
   {
     id: 'estorno',
-    title: 'Política de Estorno',
+    title: 'Política de Cancelamento e Estorno',
     icon: CreditCard,
-    content: "Em caso de não comparecimento sem aviso, será cobrado o valor total. Cancelamentos dentro do prazo recebem estorno em até 7 dias. Reembolso total ao cancelar em até 7 dias após a confirmação da reserva (ART.49 CDC). Após esse período, não há reembolso."
+    content: `Direito de Arrependimento: Reembolso integral para cancelamentos solicitados em até 07 dias corridos após a confirmação da reserva (Art. 49 do CDC).
+
+Após o Prazo Legal: Passados os 07 dias da compra, não haverá reembolso ou estorno de valores pagos, independentemente da data do check-in.
+
+No-Show (Não comparecimento): O não comparecimento na data reservada sem aviso prévio resultará na retenção de 100% do valor pago.
+
+Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno será processado em até 7 dias.`
   },
   {
     id: 'frigobar',
