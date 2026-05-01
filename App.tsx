@@ -4,6 +4,7 @@ import InfoCard from './components/InfoCard';
 import FloatingCTA from './components/FloatingCTA';
 import Hero from './components/Hero';
 import GuiaGastronomico from './components/GuiaGastronomico';
+import Passeios from './components/Passeios';
 import { BedDouble, Moon, Sun, MapPin, Phone, ArrowLeft } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -157,6 +158,7 @@ const App: React.FC = () => {
             ))}
 
             <GuiaGastronomico />
+            <Passeios />
           </div>
 
           {/* Location Section */}
