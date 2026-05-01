@@ -24,25 +24,25 @@ const GuiaGastronomico: React.FC = () => {
       <div className="pointer-events-none absolute -left-8 -bottom-8 h-24 w-24 rounded-full bg-emerald-300/20 blur-2xl animate-pulse [animation-delay:800ms]" />
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-10 w-full text-left p-5 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
+        className="relative z-10 w-full text-left p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
           <div className="relative">
             <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-amber-300 ring-4 ring-amber-100 shadow-[0_0_0_6px_rgba(217,164,74,0.12)] dark:ring-amber-950/40" />
             <div className="p-2.5 rounded-full bg-olive-50 text-olive-700 shadow-inner dark:bg-stone-700 dark:text-gold-400">
               <UtensilsCrossed size={22} strokeWidth={1.5} />
             </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <h3 className="font-serif text-lg font-semibold text-stone-800 dark:text-stone-100">
+          <div className="flex flex-col gap-1 min-w-0">
+            <h3 className="font-serif text-base sm:text-lg font-semibold text-stone-800 dark:text-stone-100">
               Guia Gastronômico
             </h3>
-            <div className="text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wide">
+            <div className="text-[11px] sm:text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wide">
               {RESTAURANTES.length} locais organizados por categoria
             </div>
             {!isOpen && (
-              <div className="mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-gradient-to-r from-stone-800 via-stone-700 to-amber-900 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em] text-amber-50 shadow-md shadow-stone-900/10 ring-1 ring-white/10 transition-transform duration-300 group-hover:translate-x-0.5">
+              <div className="mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-gradient-to-r from-stone-800 via-stone-700 to-amber-900 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-amber-50 shadow-md shadow-stone-900/10 ring-1 ring-white/10 transition-transform duration-300 group-hover:translate-x-0.5">
                 <span className="h-0.5 w-6 rounded-full bg-gradient-to-r from-transparent via-amber-200 to-transparent opacity-80 animate-pulse" />
                 Clique para abrir
                 <ArrowRight size={12} className="text-amber-200" />
@@ -65,23 +65,23 @@ const GuiaGastronomico: React.FC = () => {
           opacity: isOpen ? 1 : 0.6,
         }}
       >
-        <div className="p-5 pt-0">
+        <div className="p-4 sm:p-5 pt-0">
           <div className="h-px w-full bg-olive-100 dark:bg-stone-700 mb-4 opacity-50" />
 
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             {categorias.map(({ categoria, restaurantes }) => (
               <div key={categoria} className="space-y-3">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-3">
                   <div>
-                    <h4 className="text-base font-bold text-stone-900 dark:text-stone-100">{categoria}</h4>
-                    <p className="text-xs text-stone-500 dark:text-stone-400">{restaurantes.length} opção(ões)</p>
+                    <h4 className="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100">{categoria}</h4>
+                    <p className="text-[11px] sm:text-xs text-stone-500 dark:text-stone-400">{restaurantes.length} opção(ões)</p>
                   </div>
-                  <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-stone-500 dark:border-stone-600 dark:bg-stone-700 dark:text-stone-300">
+                  <span className="shrink-0 rounded-full border border-stone-200 bg-stone-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500 dark:border-stone-600 dark:bg-stone-700 dark:text-stone-300">
                     Monte Verde
                   </span>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                   {restaurantes.map((restaurante) => {
                     const telefoneLimpo = cleanPhone(restaurante.telefone);
                     const mapUrl = getMapUrl(restaurante);

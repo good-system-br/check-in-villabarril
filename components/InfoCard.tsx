@@ -63,10 +63,10 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
 
       <button
         onClick={toggle}
-        className="w-full text-left p-5 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
+        className="w-full text-left p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
         aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
           <div className={`
             p-2.5 rounded-full 
             ${section.highlight 
@@ -78,7 +78,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
           `}>
             <section.icon size={22} strokeWidth={1.5} />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 min-w-0">
             <h3 className={`font-serif text-lg font-semibold ${section.highlight ? 'text-red-700 dark:text-red-400' : section.isUrgent ? 'text-orange-700 dark:text-orange-400' : 'text-stone-800 dark:text-stone-100'}`}>
               {section.title}
             </h3>

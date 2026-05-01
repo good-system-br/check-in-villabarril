@@ -39,7 +39,7 @@ export const RESTAURANTES: Restaurante[] = [
     nome: 'Hügel',
     categoria: 'Alemã',
     especialidade: 'Culinária alemã e pratos típicos',
-    telefone: '',
+    telefone: '(11) 91789-9449',
     localizacao: 'Monte Verde, Camanducaia - MG'
   },
   {

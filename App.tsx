@@ -95,10 +95,10 @@ const App: React.FC = () => {
     <div className="min-h-screen relative pb-24">
       {/* Sticky Header */}
       <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-olive-50/90 dark:bg-stone-900/90 border-b border-olive-100 dark:border-stone-800 shadow-sm transition-colors duration-300">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-3">
           
           {/* Left Side: Back Button + Logo */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button 
               onClick={() => setShowContent(false)}
               className="p-2 rounded-full hover:bg-olive-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gold-400/50"
@@ -114,7 +114,7 @@ const App: React.FC = () => {
               <img 
                 src="/logo.png" 
                 alt="Villa Barril" 
-                className="h-10 sm:h-12 object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-9 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </button>
           </div>
@@ -130,28 +130,28 @@ const App: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-        <div className="space-y-6 sm:space-y-8">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="space-y-5 sm:space-y-8">
           
           {/* Logo */}
-          <div className="flex justify-center mb-8 animate-fade-in">
+          <div className="flex justify-center mb-4 sm:mb-8 animate-fade-in">
             <img 
               src="/logo.png" 
               alt="Villa Barril Logo" 
-              className="h-24 object-contain drop-shadow-lg"
+              className="h-16 sm:h-24 object-contain drop-shadow-lg"
             />
           </div>
           
           {/* Intro Text */}
-          <div className="text-center py-6 animate-fade-in">
-            <h2 className="font-serif text-3xl text-stone-800 dark:text-stone-100 mb-2">Bem-vindo</h2>
-            <p className="text-stone-600 dark:text-stone-400 font-sans max-w-lg mx-auto">
+          <div className="text-center py-4 sm:py-6 animate-fade-in">
+            <h2 className="font-serif text-2xl sm:text-3xl text-stone-800 dark:text-stone-100 mb-2">Bem-vindo</h2>
+            <p className="text-sm sm:text-base text-stone-600 dark:text-stone-400 font-sans max-w-lg mx-auto px-2 sm:px-0">
               Reunimos aqui todas as informações essenciais para tornar sua estadia conosco inesquecível.
             </p>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {SECTIONS.map((section, index) => (
               <InfoCard key={section.id} section={section} index={index} />
             ))}
@@ -160,17 +160,17 @@ const App: React.FC = () => {
           </div>
 
           {/* Location Section */}
-          <div className="mt-12 bg-white dark:bg-stone-800 rounded-2xl shadow-sm border border-olive-200 dark:border-stone-700 overflow-hidden animate-slide-up" style={{ animationDelay: '800ms' }}>
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
+          <div className="mt-10 sm:mt-12 bg-white dark:bg-stone-800 rounded-2xl shadow-sm border border-olive-200 dark:border-stone-700 overflow-hidden animate-slide-up" style={{ animationDelay: '800ms' }}>
+            <div className="p-4 sm:p-6">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <MapPin className="text-gold-500" size={24} />
-                <h3 className="font-serif text-xl font-bold text-stone-800 dark:text-stone-100">Localização</h3>
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-stone-800 dark:text-stone-100">Localização</h3>
               </div>
-              <p className="text-stone-600 dark:text-stone-300 mb-6 font-medium">
+              <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 mb-5 sm:mb-6 font-medium">
                 {CONTACT_INFO.address}
               </p>
               
-              <div className="w-full h-64 bg-stone-200 rounded-xl overflow-hidden relative">
+              <div className="w-full h-56 sm:h-64 bg-stone-200 rounded-xl overflow-hidden relative">
                  <iframe 
                    src={CONTACT_INFO.mapEmbedUrl}
                    width="100%" 
@@ -188,7 +188,7 @@ const App: React.FC = () => {
                 href="https://maps.google.com/?q=-22.854601,-46.078602"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 w-full flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+                className="mt-4 w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
               >
                 <MapPin size={20} />
                 Abrir no Google Maps
@@ -196,15 +196,15 @@ const App: React.FC = () => {
               
               <button 
                 onClick={handleOpenNavigation}
-                className="mt-3 w-full flex items-center justify-center gap-2 px-6 py-3 bg-stone-700 hover:bg-stone-800 dark:bg-stone-700 dark:hover:bg-stone-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+                className="mt-3 w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-stone-700 hover:bg-stone-800 dark:bg-stone-700 dark:hover:bg-stone-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
               >
                 <MapPin size={20} />
                 Ir para Villa Barril (Navegação)
               </button>
             </div>
             
-            <div className="bg-olive-50 dark:bg-stone-900/50 p-6 border-t border-olive-100 dark:border-stone-700">
-               <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="bg-olive-50 dark:bg-stone-900/50 p-4 sm:p-6 border-t border-olive-100 dark:border-stone-700">
+               <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-white dark:bg-stone-800 rounded-full shadow-sm">
                       <Phone size={18} className="text-gold-600" />
@@ -222,9 +222,9 @@ const App: React.FC = () => {
           </div>
           
           {/* Footer Logo e Informações */}
-          <div className="text-center pt-12 pb-6">
-             <p className="text-xs tracking-[0.3em] text-stone-500 dark:text-stone-400 font-serif mb-4">VILLA BARRIL</p>
-             <div className="text-xs text-stone-400 dark:text-stone-500 space-y-1">
+           <div className="text-center pt-10 sm:pt-12 pb-6">
+             <p className="text-[10px] sm:text-xs tracking-[0.28em] text-stone-500 dark:text-stone-400 font-serif mb-4">VILLA BARRIL</p>
+             <div className="text-[11px] sm:text-xs text-stone-400 dark:text-stone-500 space-y-1 px-2">
                <p>📍 Monte Verde, Camanducaia - MG</p>
                <p>Altitude: 1.500m | Temperatura: {temperature || 'Carregando...'}</p>
              </div>
