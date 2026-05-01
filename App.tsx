@@ -3,6 +3,7 @@ import { SECTIONS, CONTACT_INFO, APP_INFO } from './constants';
 import InfoCard from './components/InfoCard';
 import FloatingCTA from './components/FloatingCTA';
 import Hero from './components/Hero';
+import GuiaGastronomico from './components/GuiaGastronomico';
 import { BedDouble, Moon, Sun, MapPin, Phone, ArrowLeft } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -154,6 +155,8 @@ const App: React.FC = () => {
             {SECTIONS.map((section, index) => (
               <InfoCard key={section.id} section={section} index={index} />
             ))}
+
+            <GuiaGastronomico />
           </div>
 
           {/* Location Section */}
