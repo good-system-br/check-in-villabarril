@@ -45,7 +45,7 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'frigobar',
     title: 'Frigobar',
     icon: Wine,
-    content: "Refrigerante: R$10,00\nCerveja: R$15,00\nÁgua: R$5,00\nChandon baby: R$85,00\nRed-Bull: R$20,00\nVinho: R$95,00\nSalton: R$130,00\nBatatas: R$20,00",
+    content: "Refrigerante: R$10,00\nCerveja: R$15,00\nÁgua: R$5,00\nChandon baby: R$85,00\nRed-Bull: R$20,00\nVinho: R$120,00\nSalton: R$130,00\nBatatas: R$20,00",
   },
   {
     id: 'massagem',
