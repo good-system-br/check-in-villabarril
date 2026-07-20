@@ -12,13 +12,6 @@ const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [temperature, setTemperature] = useState<string | null>(null);
 
-  // Initialize dark mode based on system preference
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkMode(true);
-    }
-  }, []);
-
   // Buscar temperatura em tempo real
   useEffect(() => {
     const fetchWeather = async () => {
