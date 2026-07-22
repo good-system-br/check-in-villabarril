@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ArrowRight, ChevronDown, MapPin, Phone, UtensilsCrossed } from 'lucide-react';
+import { ChevronDown, MapPin, Phone, UtensilsCrossed } from 'lucide-react';
 import { RESTAURANTES, Restaurante } from '../restaurantes';
 
 const CATEGORIAS_ORDEM = ['Massas', 'Fondue', 'Alemã', 'Outros'];
@@ -19,44 +19,40 @@ const GuiaGastronomico: React.FC = () => {
 
   return (
     <div className="group relative overflow-hidden rounded-xl border border-olive-200 bg-white shadow-sm transition-all duration-300 ease-in-out animate-slide-up opacity-0 fill-mode-forwards dark:border-stone-700 dark:bg-stone-800 hover:-translate-y-0.5 hover:border-gold-400 hover:shadow-xl dark:hover:border-gold-600">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gold-500" />
-      <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-gold-100/35 via-transparent to-gold-100/25 opacity-80" />
-      <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gold-300/20 blur-3xl animate-pulse" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gold-500 z-10" />
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-10 w-full text-left p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
+        className="relative w-full h-36 sm:h-44 text-left focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-t-xl overflow-hidden"
         aria-expanded={isOpen}
       >
-        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
-          <div className="relative">
-            <div className="p-2.5 rounded-full bg-gold-100 text-gold-700 shadow-md shadow-gold-500/15 dark:bg-stone-700 dark:text-gold-400">
+        <img
+          src="/assets/gastronomica.jpg"
+          alt="Guia Gastronômico de Monte Verde"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+
+        <div className="relative z-10 h-full p-4 sm:p-5 flex items-end justify-between gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+            <div className="p-2.5 rounded-full bg-gold-500/90 text-white shadow-md shrink-0">
               <UtensilsCrossed size={22} strokeWidth={1.5} />
             </div>
-          </div>
-          <div className="flex flex-col gap-1 min-w-0">
-            <div className="inline-flex w-fit items-center rounded-full border border-gold-200 bg-white/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em] text-gold-700 shadow-sm dark:border-gold-900/50 dark:bg-stone-800/90 dark:text-gold-300">
-              Destaque gastronômico
-            </div>
-            <h3 className="font-serif text-lg sm:text-xl font-semibold text-stone-800 dark:text-stone-100">
-              Guia Gastronômico
-            </h3>
-            <div className="text-[11px] sm:text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wide">
-              {RESTAURANTES.length} locais organizados por categoria
-            </div>
-            {!isOpen && (
-              <div className="mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-stone-200 bg-gradient-to-r from-stone-900 via-stone-700 to-gold-900 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-50 shadow-lg shadow-stone-900/10 ring-1 ring-white/10 transition duration-300 group-hover:translate-x-1 group-hover:shadow-xl">
-                <span className="h-2 w-2 rounded-full bg-gold-300 shadow-[0_0_12px_rgba(208,166,68,0.5)]" />
-                Toque para explorar
-                <ArrowRight size={12} className="text-gold-200" />
+            <div className="flex flex-col gap-1 min-w-0">
+              <h3 className="font-serif text-lg sm:text-xl font-semibold text-white drop-shadow-md">
+                Guia Gastronômico
+              </h3>
+              <div className="text-[11px] sm:text-xs font-bold text-white/85 uppercase tracking-wide drop-shadow">
+                {RESTAURANTES.length} locais organizados por categoria
               </div>
-            )}
+            </div>
           </div>
-        </div>
 
-        <ChevronDown
-          className={`transition-transform duration-300 text-stone-400 dark:text-stone-500 ${isOpen ? 'rotate-180 text-gold-500 dark:text-gold-400' : 'animate-bounce group-hover:text-gold-500 dark:group-hover:text-gold-400'}`}
-          size={20}
-        />
+          <ChevronDown
+            className={`transition-transform duration-300 text-white shrink-0 ${isOpen ? 'rotate-180' : 'animate-bounce'}`}
+            size={20}
+          />
+        </div>
       </button>
 
       <div

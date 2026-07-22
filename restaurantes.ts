@@ -90,5 +90,12 @@ export const RESTAURANTES: Restaurante[] = [
     especialidade: 'Vista panorâmica e pratos da casa',
     telefone: '(35) 99141-1913',
     localizacao: 'Monte Verde, Camanducaia - MG'
+  },
+  {
+    nome: 'Casa Galileu',
+    categoria: 'Outros',
+    especialidade: 'Menu variado para almoço e jantar',
+    telefone: '(35) 91001-5660',
+    localizacao: 'Av. Monte Verde, 1557 - loja 1006, Monte Verde, Camanducaia - MG'
   }
 ];
