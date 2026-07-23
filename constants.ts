@@ -33,6 +33,7 @@ export const SECTIONS: InfoSection[] = [
     id: 'estorno',
     title: 'Política de Cancelamento e Estorno',
     icon: CreditCard,
+    image: '/assets/politica-cancelamento.jpg',
     content: `Direito de Arrependimento: Reembolso integral para cancelamentos solicitados em até 07 dias corridos após a confirmação da reserva (Art. 49 do CDC).
 
 Após o Prazo Legal: Passados os 07 dias da compra, não haverá reembolso ou estorno de valores pagos, independentemente da data do check-in.
@@ -45,12 +46,14 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'frigobar',
     title: 'Frigobar',
     icon: Wine,
+    image: '/assets/frigobar.jpg',
     content: "Refrigerante: R$10,00\nCerveja: R$15,00\nÁgua: R$6,00\nChandon baby: R$85,00\nVinho Branco Chua: R$180,00\nVinho: R$120,00\nSalton: R$130,00\nBatatas: R$20,00",
   },
   {
     id: 'massagem',
     title: 'Massagem',
     icon: HandHeart,
+    image: '/assets/massagem.jpg',
     content: "Reserve uma sessão relaxante de massagem durante sua estadia.",
     externalLink: "https://massagem-vb.vercel.app/",
     buttonText: "Ver Opções de Massagem"
@@ -59,6 +62,7 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'checkin',
     title: 'Check-in e Check-out',
     icon: Clock,
+    image: '/assets/checkin-checkout.jpg',
     content: `Check-in: A partir das 15:00 (apresentar documentos).\nCheck-out: Até 12:00.\nLate-checkout: consultar disponibilidade e valores.\nRecepção: 8:00 às 23:00.`
   },
   {

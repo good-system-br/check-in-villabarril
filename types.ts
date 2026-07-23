@@ -5,6 +5,7 @@ export interface InfoSection {
   title: string;
   content: string;
   icon: LucideIcon;
+  image?: string; // Optional cover image shown behind the card header
   highlight?: boolean; // For critical alerts like fines
   isUrgent?: boolean; // For time-sensitive services
   deadline?: string; // Deadline text (e.g., "Até 10:00")

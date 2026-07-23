@@ -61,46 +61,88 @@ const InfoCard: React.FC<InfoCardProps> = ({ section, index }) => {
         </>
       )}
 
-      <button
-        onClick={toggle}
-        className="w-full text-left p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
-        aria-expanded={isOpen}
-      >
-        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
-          <div className={`
-            p-2.5 rounded-full 
-            ${section.highlight 
-              ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400' 
-              : section.isUrgent
-              ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400'
-              : 'bg-olive-50 text-olive-700 dark:bg-stone-700 dark:text-gold-400'}
-            ${isBreakfastCard ? 'ring-2 ring-gold-300/70 dark:ring-gold-700/60 shadow-md shadow-gold-500/20' : ''}
-          `}>
-            <section.icon size={22} strokeWidth={1.5} />
-          </div>
-          <div className="flex flex-col gap-1 min-w-0">
-            <h3 className={`font-serif text-lg font-semibold ${section.highlight ? 'text-red-700 dark:text-red-400' : section.isUrgent ? 'text-orange-700 dark:text-orange-400' : 'text-stone-800 dark:text-stone-100'}`}>
-              {section.title}
-            </h3>
-            {section.isUrgent && section.deadline && (
-              <div className="flex items-center gap-1.5">
-                <Clock size={14} className="text-orange-500 dark:text-orange-400" />
-                <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wide">
-                  {section.deadline}
-                </span>
+      {section.image ? (
+        <button
+          onClick={toggle}
+          className="relative w-full h-36 sm:h-44 text-left focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-t-xl overflow-hidden"
+          aria-expanded={isOpen}
+        >
+          <img
+            src={section.image}
+            alt={section.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+
+          <div className="relative z-10 h-full p-4 sm:p-5 flex items-end justify-between gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="p-2.5 rounded-full bg-gold-500/90 text-white shadow-md shrink-0">
+                <section.icon size={22} strokeWidth={1.5} />
               </div>
-            )}
+              <div className="flex flex-col gap-1 min-w-0">
+                <h3 className="font-serif text-lg font-semibold text-white drop-shadow-md">
+                  {section.title}
+                </h3>
+                {section.isUrgent && section.deadline && (
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={14} className="text-white/85" />
+                    <span className="text-xs font-bold text-white/85 uppercase tracking-wide drop-shadow">
+                      {section.deadline}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <ChevronDown
+              className={`transition-transform duration-300 text-white shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+              size={20}
+            />
           </div>
-        </div>
-        
-        <ChevronDown 
-          className={`
-            transition-transform duration-300 text-stone-400 dark:text-stone-500
-            ${isOpen ? 'rotate-180 text-gold-500 dark:text-gold-400' : ''}
-          `}
-          size={20}
-        />
-      </button>
+        </button>
+      ) : (
+        <button
+          onClick={toggle}
+          className="w-full text-left p-4 sm:p-5 flex items-start sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-inset rounded-xl"
+          aria-expanded={isOpen}
+        >
+          <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+            <div className={`
+              p-2.5 rounded-full
+              ${section.highlight
+                ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'
+                : section.isUrgent
+                ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400'
+                : 'bg-olive-50 text-olive-700 dark:bg-stone-700 dark:text-gold-400'}
+              ${isBreakfastCard ? 'ring-2 ring-gold-300/70 dark:ring-gold-700/60 shadow-md shadow-gold-500/20' : ''}
+            `}>
+              <section.icon size={22} strokeWidth={1.5} />
+            </div>
+            <div className="flex flex-col gap-1 min-w-0">
+              <h3 className={`font-serif text-lg font-semibold ${section.highlight ? 'text-red-700 dark:text-red-400' : section.isUrgent ? 'text-orange-700 dark:text-orange-400' : 'text-stone-800 dark:text-stone-100'}`}>
+                {section.title}
+              </h3>
+              {section.isUrgent && section.deadline && (
+                <div className="flex items-center gap-1.5">
+                  <Clock size={14} className="text-orange-500 dark:text-orange-400" />
+                  <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wide">
+                    {section.deadline}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <ChevronDown
+            className={`
+              transition-transform duration-300 text-stone-400 dark:text-stone-500
+              ${isOpen ? 'rotate-180 text-gold-500 dark:text-gold-400' : ''}
+            `}
+            size={20}
+          />
+        </button>
+      )}
 
       <div 
         ref={contentRef}
