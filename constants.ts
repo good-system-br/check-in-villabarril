@@ -1,14 +1,12 @@
-import { 
-  CreditCard, 
-  Clock, 
-  Coffee, 
-  Sparkles, 
-  Wifi, 
-  ShieldAlert, 
-  Dog, 
-  VolumeX, 
-  AlertTriangle, 
-  Search, 
+import {
+  CreditCard,
+  Clock,
+  Coffee,
+  Sparkles,
+  Wifi,
+  ShieldAlert,
+  Dog,
+  Search,
   Phone,
   MapPin,
   HandHeart,
@@ -69,6 +67,7 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'cafe',
     title: 'Café da Manhã',
     icon: Coffee,
+    image: '/assets/cafe-da-manha.jpg',
     isUrgent: true,
     deadline: "Pedido até 20:00",
     content: "Horário: 8:00 às 10:00\n\nServido no quarto com hora marcada. O pedido pode ser feito assim que receber a chave do quarto. Solicitar via recepção ou mensagem.",
@@ -79,6 +78,7 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'arrumacao',
     title: 'Arrumação do Quarto',
     icon: Sparkles,
+    image: '/assets/arrumacao.jpg',
     isUrgent: true,
     deadline: "Solicitar até 14:00",
     content: "Solicitar antes das 14:00.",
@@ -90,6 +90,7 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'wifi',
     title: 'Wi-Fi',
     icon: Wifi,
+    image: '/assets/wifi.jpg',
     content: "Rede: Villa Barril\nSenha: cadubela",
     copyableText: "cadubela",
     copyLabel: "Copiar Senha"
@@ -98,43 +99,46 @@ Prazo de Estorno: Para casos dentro do direito de arrependimento, o estorno ser�
     id: 'regras',
     title: 'Regras e Políticas',
     icon: ShieldAlert,
-    content: "Proibido uso de DRONE.\nProibido fumar dentro da acomodação; caso seja identificado cheiro, será cobrada 1 diária extra.\nPets: sempre acompanhar; diária R$150,00."
+    image: '/assets/regras-politicas.jpg',
+    content: `Proibido uso de DRONE.
+Proibido fumar dentro da acomodação; caso seja identificado cheiro, será cobrada 1 diária extra.
+Pets: sempre acompanhar; diária R$150,00.
+
+Regras de Convivência:
+Silêncio após 22h e antes de 08h.
+Proibido som alto nas áreas comuns.
+Acesso apenas a hóspedes registrados.
+
+Danos e Avarias:
+Cuidados com a Acomodação: danos serão cobrados no check-out.
+
+Aviso de Segurança:
+Para sua segurança e conservação de nossas acomodações, é estritamente proibido o uso de:
+• Ferro de passar roupas
+• Qualquer outro equipamento elétrico gerador de calor
+
+Nota: É permitido apenas o uso de aparelhos fornecidos pela própria pousada. Contamos com a sua colaboração!`
   },
   {
     id: 'pet',
     title: 'Pet Friendly',
     icon: Dog,
+    image: '/assets/pet.jpg',
     content: "Seu pet é bem-vindo! Lembre-se de mantê-lo sempre acompanhado. Taxa de diária: R$150,00."
-  },
-  {
-    id: 'convivencia',
-    title: 'Regras de Convivência',
-    icon: VolumeX,
-    content: "Silêncio após 22h e antes de 08h.\nProibido som alto nas áreas comuns.\nAcesso apenas a hóspedes registrados."
-  },
-  {
-    id: 'danos',
-    title: 'Danos e Avarias',
-    icon: AlertTriangle,
-    content: "Cuidados com a Acomodação: Danos serão cobrados no check-out."
   },
   {
     id: 'esquecidos',
     title: 'Objetos Esquecidos',
     icon: Search,
-    content: "Solicitar devolução via WhatsApp; taxa R$150,00."
-  },
-  {
-    id: 'automatico',
-    title: 'Check-out Automático',
-    icon: AlertTriangle,
-    highlight: true,
-    content: "Ultrapassando 12h, o sistema cobra automaticamente taxa de R$390,00."
-  },
-  {
-    id: 'seguranca',
-    title: 'Aviso de Segurança',
-    icon: ShieldAlert,
-    content: "Para sua segurança e conservação de nossas acomodações, é estritamente proibido o uso de:\n\n• Ferro de passar roupas\n• Qualquer outro equipamento elétrico gerador de calor\n\nNota: É permitido apenas o uso de aparelhos fornecidos pela própria pousada. Contamos com a sua colaboração!"
+    image: '/assets/objeto-esquecido.jpg',
+    content: `Antes de ir embora, dê uma última conferida! 🔍
+
+A Pousada Villa Barril não se responsabiliza por itens e pertences esquecidos nas acomodações.
+
+Por razões logísticas da região — Monte Verde não dispõe de agência dos Correios —, não realizamos a postagem ou despacho de objetos deixados no local.
+
+Verifique suas malas e faça uma excelente viagem de volta! 🌲✨
+
+Com carinho, Equipe Villa Barril.`
   }
 ];
