@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight \"./pet01.jpeg\" \"./arrumacao01.jpeg\" \"./massagem01.jpeg\")",
+      "Bash(sips -s format jpeg -s formatOptions 82 -Z 900 massagem01.jpeg --out assets/massagem.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 82 -Z 900 arrumacao01.jpeg --out assets/arrumacao.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 82 -Z 900 pet01.jpeg --out assets/pet.jpg)"
+    ]
+  }
+}
